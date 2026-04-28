@@ -1,0 +1,18 @@
+{
+  "name": "test-booking",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Playwright tests for booking flows",
+  "scripts": {
+    "test": "playwright test",
+    "test:api": "playwright test --project=api",
+    "test:ui:car-rental": "playwright test --project=ui-chromium tests/ui/car-rental-flow.ui.spec.ts",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "latest",
+    "@types/node": "latest"
+  }
+}
