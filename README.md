@@ -35,7 +35,10 @@ npx playwright install chromium
 
 ## Environment Variables
 
-Use `.env.example` as a template:
+This project can run **without** a local `.env` file because defaults are defined in `tests/config/env.ts`.
+So on a fresh machine, API tests work out of the box after install.
+
+If you want to override defaults, use `.env.example` as a template:
 
 ```bash
 cp .env.example .env
@@ -45,7 +48,16 @@ Available variables:
 
 - `BOOKING_CARS_URL` (default already provided)
 - `API_BASE_URL` (default: `https://api.restful-api.dev`)
-- `BOOKING_EMAIL` and `BOOKING_PASSWORD` (optional; needed only for authenticated scenarios)
+- `BOOKING_EMAIL` and `BOOKING_PASSWORD` (optional; only for authenticated scenarios)
+
+### Minimum setup on another machine
+
+1. Clone repo
+2. Run `npm install`
+3. Run `npx playwright install chromium`
+4. Run API tests (`npm run test:api`)
+
+No additional credentials are required for the API suite.
 
 ## Run Steps
 
