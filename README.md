@@ -13,11 +13,11 @@ Automation assignment that covers:
 
 ## Project Structure
 
-- `tests/ui/new-york-jfk-dates.ui.spec.ts` - UI flow: search car rental in New York (JFK), set dates, validate search results URL and result page markers.
+- `tests/ui/search-car-jfk.ui.spec.ts` - UI flow: search car rental in New York (JFK), set dates, validate search results URL and result page markers.
 - `tests/ui/pages/bookingCarsHomePage.ts` - UI page object for Booking Cars landing page actions.
 - `tests/ui/pages/bookingCarsResultsPage.ts` - UI page object for results page checks and overlay handling.
 - `tests/ui/fixtures/ui.fixture.ts` - shared Playwright fixtures for UI tests.
-- `tests/api/objects.api.spec.ts` - API tests for public objects endpoint (`GET`, `POST`, `DELETE`).
+- `tests/api/api-tests.api.spec.ts` - API tests for public objects endpoint (`GET`, `POST`, `DELETE`).
 - `tests/config/env.ts` - centralized environment values.
 - `playwright.config.ts` - Playwright projects and runner configuration.
 
@@ -48,7 +48,6 @@ Available variables:
 
 - `BOOKING_CARS_URL` (default already provided)
 - `API_BASE_URL` (default: `https://api.restful-api.dev`)
-- `BOOKING_EMAIL` and `BOOKING_PASSWORD` (optional; only for authenticated scenarios)
 
 ### Minimum setup on another machine
 
@@ -76,13 +75,13 @@ npm run test:api
 ### 3) Run only one API spec
 
 ```bash
-npx playwright test --project=api tests/api/objects.api.spec.ts
+npx playwright test --project=api tests/api/api-tests.api.spec.ts
 ```
 
 ### 4) Run UI test (headed)
 
 ```bash
-PLAYWRIGHT_BROWSERS_PATH=0 npx playwright test --project=ui-chromium --headed --workers=1 tests/ui/new-york-jfk-dates.ui.spec.ts
+PLAYWRIGHT_BROWSERS_PATH=0 npx playwright test --project=ui-chromium --headed --workers=1 tests/ui/search-car-jfk.ui.spec.ts
 ```
 
 ### 5) Open HTML report
@@ -93,7 +92,7 @@ npx playwright show-report
 
 ## What Is Validated
 
-### API: `tests/api/objects.api.spec.ts`
+### API: `tests/api/api-tests.api.spec.ts`
 
 - `GET /objects`
   - status is `200`
@@ -110,7 +109,7 @@ npx playwright show-report
   - status is `200`
   - response message contains deleted object ID and `has been deleted`
 
-### UI: `tests/ui/new-york-jfk-dates.ui.spec.ts`
+### UI: `tests/ui/search-car-jfk.ui.spec.ts`
 
 - opens Booking Cars landing page
 - accepts cookie banner

@@ -3,8 +3,8 @@ import { test } from './fixtures/ui.fixture';
 const PICKUP_QUERY = 'new';
 const JFK_EXACT_OPTION = 'John F. Kennedy International Airport (JFK), New York, United States';
 
-test.describe('Car rental case - New York JFK with dates', () => {
-  test('search with New York JFK, pickup 1 May and drop-off 5 May', async ({ carsHomePage, carsResultsPage }) => {
+test.describe('JFK car search', () => {
+  test('should search cars in JFK', async ({ carsHomePage, carsResultsPage }) => {
     test.setTimeout(180_000);
     await carsHomePage.open();
 
