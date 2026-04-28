@@ -3,8 +3,8 @@ import { env } from '../config/env';
 
 const API_BASE_URL = env.apiBaseUrl;
 
-test.describe('Public objects API', () => {
-  test('GET /objects returns list of objects', async ({ request }) => {
+test.describe('Objects API', () => {
+  test('get data', async ({ request }) => {
     const response = await request.get(`${API_BASE_URL}/objects`);
     expect(response.status()).toBe(200);
 
@@ -12,7 +12,7 @@ test.describe('Public objects API', () => {
     expect(Array.isArray(body)).toBeTruthy();
   });
 
-  test('POST /objects creates object', async ({ request }) => {
+  test('create new object', async ({ request }) => {
     const uniqueName = `Apple iPad Air ${Date.now()}`;
     const color = '11Cloudy White';
     const capacityGb = 51211;
@@ -44,7 +44,7 @@ test.describe('Public objects API', () => {
     expect(created.data['capacity GB']).toBe(capacityGb);
   });
 
-  test('DELETE /objects/{id} removes object created in this test', async ({ request }) => {
+  test('remov object created in this test', async ({ request }) => {
     const deleteCandidateName = `Delete candidate ${Date.now()}`;
     const createForDeleteResponse = await request.post(`${API_BASE_URL}/objects`, {
       data: {
